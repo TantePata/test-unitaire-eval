@@ -28,15 +28,29 @@ class StringFormatter
     {
         $result = "";
         foreach ($arrayOfString as $string) {
-            $result .= mb_strtoupper($string[0]) . mb_strtolower(substr($string, 1));
+            $result .= ucfirst(mb_strtolower($string));
         }
+        
         return $result;
     }
-        
-    public function prefix(string $str1, string $str2):string
+    
+    /**
+     * Function for add a prefix
+     *
+     * @param string $str1 The base string
+     * @param string $str2 The prefix string
+     * @param bool   $toCamelCase If defined the returned sting is camelCased
+     *
+     * @return string
+     */
+    public function prefix(string $str1, string $str2, bool $toCamelCase = false):string
     {
-        $result = "";
-        return $result;
+        if ($toCamelCase) {
+            $str1 = ucfirst(mb_strtolower($str1));
+            $str2 = ucfirst(mb_strtolower($str2));
+        }
+       
+        return self::concat($str2, $str1);
     }
         
     public function suffix(string $sr2, string $str2):string
