@@ -26,4 +26,9 @@ class StringFormatterTest extends TestCase
     {
         $this->assertSame("HelloWorlD", self::$stringFormatter->concat(self::$str1, self::$str2));
     }
+    
+    public function testCamelCase()
+    {
+        $this->assertSame("HelloWorld", self::$stringFormatter->toCamelCase([self::$str1,self::$str2]));
+    }
 }

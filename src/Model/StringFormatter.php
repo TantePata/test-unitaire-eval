@@ -16,10 +16,20 @@ class StringFormatter
     {
         return $str1.$str2;
     }
-        
-    public function toCamelCase(string $str):string
+    
+    /**
+     * 	Function for transform a array of string to camel case
+     *
+     * @param array $arrayOfString The array of string
+     *
+     * @return string the camelCase string
+     */
+    public function toCamelCase(array $arrayOfString):string
     {
         $result = "";
+        foreach ($arrayOfString as $string) {
+            $result .= mb_strtoupper($string[0]) . mb_strtolower(substr($string, 1));
+        }
         return $result;
     }
         
