@@ -31,10 +31,16 @@ class StringFormatterTest extends TestCase
     {
         $this->assertSame("HelloWorld", self::$stringFormatter->toCamelCase([self::$str1, self::$str2]));
     }
-    
-    public function testsuffix()
-    {
-        $this->assertSame("WorldHello", self::$stringFormatter->prefix(self::$str1, self::$str2, true));
-        $this->assertSame("WorlDHello", self::$stringFormatter->prefix(self::$str1, self::$str2));
-    }
+	
+	public function testprefix()
+	{
+		$this->assertSame("WorldHello", self::$stringFormatter->prefix(self::$str1, self::$str2, true));
+		$this->assertSame("WorlDHello", self::$stringFormatter->prefix(self::$str1, self::$str2));
+	}
+	
+	public function testsuffix()
+	{
+		$this->assertSame("HelloWorld", self::$stringFormatter->suffix(self::$str1, self::$str2, true));
+		$this->assertSame("HelloWorlD", self::$stringFormatter->suffix(self::$str1, self::$str2));
+	}
 }

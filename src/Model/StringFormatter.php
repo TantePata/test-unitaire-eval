@@ -52,10 +52,18 @@ class StringFormatter
        
         return self::concat($str2, $str1);
     }
-        
-    public function suffix(string $sr2, string $str2):string
+	
+	/**
+	 * Function for add a suffix
+	 *
+	 * @param string $str1 The base string
+	 * @param string $str2 The suffix string
+	 * @param bool   $toCamelCase If defined the returned sting is camelCased
+	 *
+	 * @return string
+	 */
+    public function suffix(string $str1, string $str2, bool $toCamelCase = false):string
     {
-        $result = "";
-        return $result;
+        return self::prefix($str2, $str1, $toCamelCase);
     }
 }
